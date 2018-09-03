@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Start the udhcpd daemon - DHCP server
+#
+
+RUN_DAEMON="/usr/sbin/udhcpd -S /etc/udhcpd.conf"
+
+case "$1" in
+  start)
+        printf "Starting udhcpd: "
+        $RUN_DAEMON
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  stop)
+        printf "Stopping udhcpd"
+        /usr/bin/killall udhcpd
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
