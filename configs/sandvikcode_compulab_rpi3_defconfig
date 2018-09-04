@@ -5,6 +5,7 @@ BR2_DL_DIR="/host/dl"
 BR2_CCACHE=y
 BR2_CCACHE_DIR="host/.buildroot-ccache"
 
+BR2_TOOLCHAIN_BUILDROOT_WCHAR=y
 BR2_TOOLCHAIN_BUILDROOT_CXX=y
 
 BR2_SYSTEM_DHCP="eth0"
@@ -32,6 +33,10 @@ BR2_PACKAGE_HOST_MTOOLS=y
 # Added busybox configuration file
 BR2_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES="board/sandvikcode/compulab_rpi3/busybox.fragment"
 
+# Support Windows shared folders using CIFS and SAMBA4
+BR2_PACKAGE_CIFS_UTILS=y
+BR2_PACKAGE_SAMBA4=y
+
 # Filesystem / image
 BR2_TARGET_ROOTFS_EXT2=y
 BR2_TARGET_ROOTFS_EXT2_4=y
@@ -41,3 +46,6 @@ BR2_ROOTFS_POST_BUILD_SCRIPT="board/sandvikcode/compulab_rpi3/post-build.sh"
 BR2_ROOTFS_POST_IMAGE_SCRIPT="board/sandvikcode/compulab_rpi3/post-image.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="--add-pi3-miniuart-bt-overlay"
 BR2_ROOTFS_OVERLAY="board/sandvikcode/compulab_rpi3/rootfs_overlay"
+
+# Device table to set permissions on files / device nodes
+BR2_ROOTFS_DEVICE_TABLE="board/sandvikcode/compulab_rpi3/device_table.txt"
