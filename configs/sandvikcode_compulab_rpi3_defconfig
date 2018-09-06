@@ -49,6 +49,11 @@ BR2_PACKAGE_LINUX_FIRMWARE_RALINK_RT2XX=y
 # Add wifi support
 BR2_PACKAGE_WPA_SUPPLICANT=y
 
+# Add avahi-daemon (service discovery support)
+BR2_PACKAGE_AVAHI=y
+# BR2_PACKAGE_AVAHI_AUTOIPD is not set
+BR2_PACKAGE_AVAHI_DAEMON=y
+
 # Filesystem / image
 BR2_TARGET_ROOTFS_EXT2=y
 BR2_TARGET_ROOTFS_EXT2_4=y
