@@ -3,7 +3,7 @@ BR2_cortex_a7=y
 BR2_ARM_FPU_NEON_VFPV4=y
 BR2_DL_DIR="/host/dl"
 BR2_CCACHE=y
-BR2_CCACHE_DIR="host/.buildroot-ccache"
+BR2_CCACHE_DIR="/host/.buildroot-ccache"
 
 BR2_TOOLCHAIN_BUILDROOT_WCHAR=y
 BR2_TOOLCHAIN_BUILDROOT_CXX=y
