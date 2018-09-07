@@ -12,7 +12,7 @@ case "$1" in
         [ $? = 0 ] && echo "OK" || echo "FAIL"
         ;;
   stop)
-        printf "Stopping udhcpd"
+        printf "Stopping udhcpd: "
         /usr/bin/killall udhcpd
         [ $? = 0 ] && echo "OK" || echo "FAIL"
         ;;
