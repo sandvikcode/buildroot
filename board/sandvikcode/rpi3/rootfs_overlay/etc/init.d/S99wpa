@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Start the wpa_supplicant daemon - WIFI
+#
+
+RUN_DAEMON="wpa_supplicant -B -Dwext -iwlan0 -c/etc/wpa_supplicant.conf"
+
+case "$1" in
+  start)
+        printf "Starting wpa_supplicant: "
+        $RUN_DAEMON
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  stop)
+        printf "Stopping wpa_supplicant: "
+        /usr/bin/killall -q wpa_supplicant
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
