@@ -22,3 +22,11 @@
 
 # Samba share is set so nobody is owner
 /share					d	755	65534	65534	-	-	-	-	-
+
+# Set ssh permissions
+/root/.ssh				d	700	0	0	-	-	-	-	-
+/root/.ssh/authorized_keys		f	600	0	0	-	-	-	-	-
+/etc/ssh/ssh_host_dsa_key		f	600	0	0	-	-	-	-	-
+/etc/ssh/ssh_host_ecdsa_key		f	600	0	0	-	-	-	-	-
+/etc/ssh/ssh_host_ed25519_key		f	600	0	0	-	-	-	-	-
+/etc/ssh/ssh_host_rsa_key		f	600	0	0	-	-	-	-	-

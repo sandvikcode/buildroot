@@ -31,6 +31,8 @@ BR2_PACKAGE_HOST_DOSFSTOOLS=y
 BR2_PACKAGE_HOST_GENIMAGE=y
 BR2_PACKAGE_HOST_MTOOLS=y
 
+BR2_PACKAGE_OPENSSH=y
+
 # Added busybox configuration file
 BR2_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES="board/sandvikcode/rpi3/busybox.fragment"
 
