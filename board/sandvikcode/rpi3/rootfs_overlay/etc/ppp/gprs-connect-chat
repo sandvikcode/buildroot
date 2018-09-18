@@ -1,0 +1,26 @@
+# Chat script for tele2, used in SIMCOM sim7100E module.
+TIMEOUT         5
+ABORT           "DELAYED"
+ABORT           "BUSY"
+ABORT           "ERROR"
+ABORT           "NO DIALTONE"
+ABORT           "NO CARRIER"
+TIMEOUT         10
+''              \rAT
+
+# Enable command echo
+OK		ATE1
+
+# Check if password (pin) is needed before we can continue
+OK		AT+CPIN?
+
+# Add pin XXXX here if needed
+#OK		AT+CPIN=XXXX
+
+# Make sure we connect to tele2 mobile network using Access Point Name (APN)
+OK              AT+CGDCONT=1,"IP","m2m.tele2.com"
+
+# Set dialout command
+OK              ATDT*99*1#
+
+CONNECT

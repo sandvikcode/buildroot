@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# Start the pppd daemon - 4G modem
+#
+
+RUN_DAEMON="pppd call tele2"
+
+case "$1" in
+  start)
+        printf "Starting pppd"
+	while [ ! -e /dev/ttyUSB3 ]
+	do
+	        printf "."
+		sleep 2
+	done
+	printf ": "
+        $RUN_DAEMON
+
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  stop)
+        printf "Stopping pppd: "
+        /usr/bin/killall -q pppd
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
