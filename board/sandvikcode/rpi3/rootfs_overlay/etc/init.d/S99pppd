@@ -4,19 +4,25 @@
 #
 
 RUN_DAEMON="pppd call tele2"
+MODEM_PORT="/dev/ttyUSB3"
+
 
 case "$1" in
   start)
         printf "Starting pppd"
-	while [ ! -e /dev/ttyUSB3 ]
+	timeout=5
+	while [ ${timeout} != 0 ] && [ ! -e ${MODEM_PORT} ]
 	do
 	        printf "."
 		sleep 2
+		timeout=$((timeout - 1))
 	done
-	printf ": "
-        $RUN_DAEMON
-
-        [ $? = 0 ] && echo "OK" || echo "FAIL"
+	if [ -n $timeout ]; then
+		echo "FAIL - Timeout waiting for ${MODEM_PORT} to appear."
+	else
+        	$RUN_DAEMON
+	        [ $? = 0 ] && echo "OK" || echo "FAIL"
+	fi
         ;;
   stop)
         printf "Stopping pppd: "
