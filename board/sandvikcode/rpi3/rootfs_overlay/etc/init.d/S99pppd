@@ -17,11 +17,12 @@ case "$1" in
 		sleep 2
 		timeout=$((timeout - 1))
 	done
-	if [ -n $timeout ]; then
-		echo "FAIL - Timeout waiting for ${MODEM_PORT} to appear."
-	else
+	if [ $timeout -ne 0 ]; then
+		printf ": "
         	$RUN_DAEMON
 	        [ $? = 0 ] && echo "OK" || echo "FAIL"
+	else
+		echo "FAIL - Timeout waiting for ${MODEM_PORT} to appear."
 	fi
         ;;
   stop)
