@@ -1,0 +1,29 @@
+kernel=zImage
+
+# fixes rpi3 ttyAMA0 serial console
+dtoverlay=pi3-miniuart-bt
+
+# AXOTEC: Disable HDMI
+hdmi_ignore_hotplug=1
+hdmi_ignore_edid=1
+
+# Uncomment some or all of these to enable the optional hardware interfaces
+dtparam=i2c_arm=on
+dtparam=spi=on
+
+# Uncomment this to enable the lirc-rpi module
+dtoverlay=i2c-pcf8563-rtc
+dtoverlay=i2c-pca5
+dtoverlay=i2c-pca6
+dtoverlay=i2c-pca7
+dtoverlay=dspc-pc
+dtoverlay=dspc-sc
+dtoverlay=dspc-ul
+
+#dtoverlay=wbsd-bcf
+#dtoverlay=bsr-bcf
+#dtoverlay=dspc-pc
+#dtoverlay=dspc-sc
+#dtoverlay=dspc-ul
+
+force_turbo=1
