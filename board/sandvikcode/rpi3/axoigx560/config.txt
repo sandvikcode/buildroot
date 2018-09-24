@@ -1,8 +1,5 @@
 kernel=zImage
 
-# fixes rpi3 ttyAMA0 serial console
-dtoverlay=pi3-miniuart-bt
-
 # AXOTEC: Disable HDMI
 hdmi_ignore_hotplug=1
 hdmi_ignore_edid=1
@@ -20,10 +17,10 @@ dtoverlay=dspc-pc
 dtoverlay=dspc-sc
 dtoverlay=dspc-ul
 
-#dtoverlay=wbsd-bcf
-#dtoverlay=bsr-bcf
-#dtoverlay=dspc-pc
-#dtoverlay=dspc-sc
-#dtoverlay=dspc-ul
+dtoverlay=wbsd-bcf
+dtoverlay=bsr-bcf
+dtoverlay=dspc-pc
+dtoverlay=dspc-sc
+dtoverlay=dspc-ul
 
 force_turbo=1
